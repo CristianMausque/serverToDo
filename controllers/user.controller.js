@@ -29,10 +29,10 @@ const editUserById = (req, res, next) => {
     //Routing test with postman
     const { _id } = req.payload
 
-    const { username, email, password, avatar, role, tasks} = req.body
+    const { name, surname, surname2, username, email, password, birthdate, position, avatar, role, tasks} = req.body
 
     User
-        .findByIdAndUpdate( _id, { username, email, password, avatar, role, tasks }, { new: true })
+        .findByIdAndUpdate( _id, { name, surname, surname2, username, email, password, birthdate, position, avatar, role, tasks}, { new: true })
         .then(response => res.json(response))
         .catch(err => next(err))
 }

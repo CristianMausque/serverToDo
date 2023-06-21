@@ -3,6 +3,27 @@ const Todo = require("./Todo.model")
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: [true, "Name is required"],
+      trim: true,
+      minlength: [2, 'The username must be 2 characters minimum'],
+      maxlength: [15, 'The username must be 15 characters maximum'] 
+    },
+    surname: {
+      type: String,
+      required: [true, "Username is required"],
+      trim: true,
+      minlength: [2, 'The username must be 2 characters minimum'],
+      maxlength: [15, 'The username must be 15 characters maximum'] 
+    },
+    surname2: {
+      type: String,
+      required: [true, "Username is required"],
+      trim: true,
+      minlength: [2, 'The username must be 2 characters minimum'],
+      maxlength: [15, 'The surname must be 15 characters maximum'] 
+    },
     username: {
       type: String,
       required: [true, "Username is required"],
@@ -24,6 +45,16 @@ const userSchema = new Schema(
       // required: [true, 'Password is required.'],
       minlength: [4, 'Password must be at least 4 characters minimum'],
       maxlength: [20, 'Password must be 20 caracteres maximum']
+    },
+    birthdate: {
+      type: Date,
+      required: [true, "Birthdate is required."],
+    },
+    position: {
+      type: String,
+      required: [true, "Position is required."],
+      minlength: [4, 'Position must be at least 4 characters minimum'],
+      maxlength: [30, 'Position must be 30 caracteres maximum']      
     },
     avatar: {
       type: String,
