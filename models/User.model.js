@@ -48,13 +48,13 @@ const userSchema = new Schema(
     },
     birthdate: {
       type: Date,
-      required: [true, "Birthdate is required."],
+      // required: [true, "Birthdate is required."],
     },
     position: {
       type: String,
-      required: [true, "Position is required."],
-      minlength: [4, 'Position must be at least 4 characters minimum'],
-      maxlength: [30, 'Position must be 30 caracteres maximum']      
+      // required: [true, "Position is required."],
+      // minlength: [4, 'Position must be at least 4 characters minimum'],
+      // maxlength: [30, 'Position must be 30 caracteres maximum']      
     },
     avatar: {
       type: String,
