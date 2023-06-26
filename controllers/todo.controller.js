@@ -28,7 +28,6 @@ const editTodoById = (req, res, next) => {
   // const todo_id = '6488902067cfab246a600c3b'
   const { title, done, creator } = req.body
 
-  console.log(todo_id)
 
   Todo
     .findByIdAndUpdate(todo_id, { title, done, creator }, { new: true })

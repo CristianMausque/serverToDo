@@ -11,9 +11,8 @@ const getAllUsers = (req, res, next) => {
 }
 
 const getUserById = (req, res, next) => {
-
+    console.log ("REQ PAYLOAD DESDE CONTROLLERS",req.payload)
     const { id } = req.params
-
     User
         .findById(id)
         .populate('tasks')
@@ -22,7 +21,6 @@ const getUserById = (req, res, next) => {
 }
 
 const editUserById = (req, res, next) => {
-
     // const { id } = req.params
     // const {id} = '64888be618742fb04401f76e'
     //Routing test with postman
