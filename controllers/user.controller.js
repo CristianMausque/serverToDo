@@ -1,7 +1,6 @@
 const User = require('../models/User.model')
 const Todo = require('../models/Todo.model')
 
-
 const getAllUsers = (req, res, next) => {
 
     User
