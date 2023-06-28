@@ -21,13 +21,6 @@ const userSchema = new Schema(
       minlength: [2, 'The username must be 2 characters minimum'],
       maxlength: [15, 'The username must be 15 characters maximum']
     },
-    surname2: {
-      type: String,
-      required: [true, "Username is required"],
-      trim: true,
-      minlength: [2, 'The username must be 2 characters minimum'],
-      maxlength: [15, 'The surname must be 15 characters maximum']
-    },
     username: {
       type: String,
       required: [true, "Username is required"],
@@ -49,10 +42,6 @@ const userSchema = new Schema(
       // required: [true, 'Password is required.'],
       minlength: [4, 'Password must be at least 4 characters minimum'],
       maxlength: [20, 'Password must be 20 caracteres maximum']
-    },
-    birthdate: {
-      type: Date,
-      // required: [true, "Birthdate is required."],
     },
     position: {
       type: String,
@@ -91,8 +80,8 @@ userSchema.pre('save', function (next) {
 
 
 userSchema.methods.signToken = function () {
-  const { _id, username, email, profileImg } = this
-  const payload = { _id, username, email, profileImg }
+  const { _id, username, email, avatar } = this
+  const payload = { _id, username, email, avatar }
 
   const authToken = jwt.sign(
     payload,
