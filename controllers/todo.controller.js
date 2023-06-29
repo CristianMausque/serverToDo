@@ -12,8 +12,8 @@ const getTodosByCreator = (req, res, next) => {
 
 const createTodo = (req, res, next) => {
 
-    const { title, done, creator } = req.body
-    const { _id: owner } = req.payload
+    const { title, done } = req.body
+    const { _id: creator } = req.payload
 
     Todo
         .create({ title, done, creator })
@@ -23,7 +23,7 @@ const createTodo = (req, res, next) => {
 
 const editTodoById = (req, res, next) => {
 
-  const {todo_id} = req.params
+  // const {todo_id} = req.params
 
   // const todo_id = '6488902067cfab246a600c3b'
   const { title, done, creator } = req.body
