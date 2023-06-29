@@ -1,14 +1,8 @@
-const uploaderMiddleware = require('../middlewares/uploader.middlewares')
 const router = require('express').Router()
+const uploaderMiddleware = require('../middlewares/uploader.middlewares')
 
-router.post('/image', uploaderMiddleware.single('imageData'), (req, res) => {
+const { upload } = require('../controllers/upload.controller')
 
-    if (!req.file) {
-        res.status(500).json({ errorMessage: 'Error caragndo el archivo' })
-        return
-    }
-
-    res.json({ cloudinary_url: req.file.path })
-})
+router.post('/image', uploaderMiddleware.single('imageData'), upload)
 
 module.exports = router

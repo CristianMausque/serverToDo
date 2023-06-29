@@ -11,8 +11,9 @@ const getAllUsers = (req, res, next) => {
 }
 
 const getUserById = (req, res, next) => {
-    console.log ("REQ PAYLOAD DESDE CONTROLLERS",req.payload)
+
     const { id } = req.params
+    
     User
         .findById(id)
         .populate('tasks')
