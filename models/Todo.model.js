@@ -5,7 +5,8 @@ const todoSchema = new Schema(
         title: {
             type: String,
             required: true,
-            maxlength: [150, 'Task must be 150 caracteres maximum']
+            default: 'Error 500',
+            // maxlength: [150, 'Task must be 150 caracteres maximum']
         },
         done: {
             type: Boolean,
@@ -15,6 +16,9 @@ const todoSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User'
         }
+    },
+    {
+        timestamps: true
     }
 )
 

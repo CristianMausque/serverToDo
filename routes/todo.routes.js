@@ -12,7 +12,7 @@ const {
 
 router.get("/:id", isAuthenticated, getTodosByCreator)
 
-router.post("/save",  createTodo)
+router.post("/save", isAuthenticated, createTodo)
 
 router.put("/:id/edit", isAuthenticated,  editTodoById)
 

@@ -16,7 +16,6 @@ const getUserById = (req, res, next) => {
     
     User
         .findById(id)
-        // .populate('tasks')
         .then(response => res.json(response))
         .catch(err => next(err))
 }

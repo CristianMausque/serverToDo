@@ -1,30 +1,30 @@
 const Todo = require('../models/Todo.model')
+const User = require('../models/User.model')
 
 const getTodosByCreator = (req, res, next) => {
 
-    const { creator } = req.params
-  
+  const { _id: creator } = req.payload
+
     Todo
-      .find({ creator })
+      .find({ creator: creator })
       .then(response => res.json(response))
       .catch(err => next(err))
 }
 
 const createTodo = (req, res, next) => {
 
-    const { title, done } = req.body
-    const { _id: creator } = req.payload
+  const { todoData: title, done } = req.body
+  const { _id: creator } = req.payload
 
-    Todo
-        .create({ title, done, creator })
-        .then(response => res.json(response))
-        .catch(err => next(err))
+  Todo
+    .create({ title, done, creator })
+    .then(response => res.json(response))
+    .catch(err => next(err))
 }
 
 const editTodoById = (req, res, next) => {
 
   // const {todo_id} = req.params
-
   // const todo_id = '6488902067cfab246a600c3b'
   const { title, done, creator } = req.body
 
@@ -39,18 +39,17 @@ const editTodoById = (req, res, next) => {
 
 const deleteTodoById = (req, res, next) => {
 
-  const { todo_id } = req.params
-  // const todo_id = '6488fa64933e151d1f3cebde'
-  //testing routes with postman
+  const { id } = req.params
+
   Todo
-    .findByIdAndDelete(todo_id)
+    .findByIdAndDelete({ _id: id })
     .then(response => res.json(response))
     .catch(err => next(err))
 }
 
-  module.exports = {
-    getTodosByCreator,
-    createTodo,
-    editTodoById,
-    deleteTodoById
+module.exports = {
+  getTodosByCreator,
+  createTodo,
+  editTodoById,
+  deleteTodoById
 }
