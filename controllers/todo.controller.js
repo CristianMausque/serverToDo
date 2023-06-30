@@ -24,14 +24,13 @@ const createTodo = (req, res, next) => {
 
 const editTodoById = (req, res, next) => {
 
-  // const {todo_id} = req.params
+  const {id} = req.params
   // const todo_id = '6488902067cfab246a600c3b'
   const { title, done, creator } = req.body
-
+console.log(id, "este req.params es el de edit")
 
   Todo
-    .findByIdAndUpdate(todo_id, { title, done, creator }, { new: true })
-    .populate('creator')
+    .findByIdAndUpdate(id, { title, done, creator }, { new: true })
     .then(response => res.json(response))
     .catch(err => next(err))
 
