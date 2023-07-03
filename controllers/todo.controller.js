@@ -25,9 +25,7 @@ const createTodo = (req, res, next) => {
 const editTodoById = (req, res, next) => {
 
   const {id} = req.params
-  // const todo_id = '6488902067cfab246a600c3b'
   const { title, done, creator } = req.body
-console.log(id, "este req.params es el de edit")
 
   Todo
     .findByIdAndUpdate(id, { title, done, creator }, { new: true })
