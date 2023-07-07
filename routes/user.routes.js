@@ -14,7 +14,7 @@ router.get("/getAllUsers", isAuthenticated, getAllUsers)
 
 router.get("/:id", isAuthenticated, getUserById)
 
-router.put("/:id/edit", isAuthenticated, editUserById)
+router.put("/edit", isAuthenticated, editUserById)
 
 router.delete("/:id/delete", isAuthenticated, deleteUserById)
 

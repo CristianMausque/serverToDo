@@ -21,9 +21,7 @@ const getUserById = (req, res, next) => {
 }
 
 const editUserById = (req, res, next) => {
-    // const { id } = req.params
-    // const {id} = '64888be618742fb04401f76e'
-    //Routing test with postman
+
     const { _id } = req.payload
 
     const { name, surname, surname2, username, email, password, birthdate, position, avatar, role, tasks} = req.body
@@ -33,6 +31,19 @@ const editUserById = (req, res, next) => {
         .then(response => res.json(response))
         .catch(err => next(err))
 }
+
+
+const updateProfile = (req, res, next) => {
+
+    const { _id } = req.payload
+    const { email, username, profileImg } = req.body
+  
+      User
+        .findByIdAndUpdate(_id, { email, username, profileImg })
+        .then( () => res.sendStatus(201))
+        .catch(err => next(err))
+  
+  }
 
 const deleteUserById = (req, res, next) => {
     const { id } = req.params 
