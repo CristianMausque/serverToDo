@@ -33,17 +33,17 @@ const editUserById = (req, res, next) => {
 }
 
 
-const updateProfile = (req, res, next) => {
+// const updateProfile = (req, res, next) => {
 
-    const { _id } = req.payload
-    const { email, username, profileImg } = req.body
+//     const { _id } = req.payload
+//     const { email, username, profileImg } = req.body
   
-      User
-        .findByIdAndUpdate(_id, { email, username, profileImg })
-        .then( () => res.sendStatus(201))
-        .catch(err => next(err))
+//       User
+//         .findByIdAndUpdate(_id, { email, username, profileImg })
+//         .then( () => res.sendStatus(201))
+//         .catch(err => next(err))
   
-  }
+//   }
 
 const deleteUserById = (req, res, next) => {
     const { id } = req.params 

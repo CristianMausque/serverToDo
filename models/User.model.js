@@ -35,19 +35,26 @@ const userSchema = new Schema(
       required: [true, 'Email is required.'],
       unique: true,
       trim: true,
-      lowercase: true
+      lowercase: true,
+      validate: {
+        validator: function (value) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+          return emailRegex.test(value)
+        },
+        message: 'Invalid email format.'
+      }
     },
     password: {
       type: String,
-      // required: [true, 'Password is required.'],
+      required: [true, 'Password is required.'],
       minlength: [4, 'Password must be at least 4 characters minimum'],
       maxlength: [20, 'Password must be 20 caracteres maximum']
     },
     position: {
       type: String,
-      // required: [true, "Position is required."],
-      // minlength: [4, 'Position must be at least 4 characters minimum'],
-      // maxlength: [30, 'Position must be 30 caracteres maximum']      
+      required: [true, "Position is required."],
+      minlength: [4, 'Position must be at least 4 characters minimum'],
+      maxlength: [30, 'Position must be 30 caracteres maximum']      
     },
     avatar: {
       type: String,
